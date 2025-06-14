@@ -1,254 +1,207 @@
-*uganda.txt*    Nvim
+*uganda.txt*    Nvim						  译者：Peler
 
 
-		  VIM REFERENCE MANUAL    by Bram Moolenaar
+		  VIM 参考手册    by Bram Moolenaar
 
 
 			*uganda* *Uganda* *copying* *copyright* *license*
-SUMMARY
+简介:
 								*iccf* *ICCF*
-Vim is Charityware.  You can use and copy it as much as you like, but you are
-encouraged to make a donation for needy children in Uganda.  Please see |kcc|
-below or visit the ICCF web site, available at these URLs:
+Vim 是慈善软件，您可以任意地使用和复制，但还是希望您能够捐助那些需要帮助的乌干
+达儿童。请看下方的 |kcc|，或者通过下面几个镜像地址访问 ICCF 的主页以获取更多地
+信息:
 
 	https://iccf-holland.org/
 	https://www.vim.org/iccf/
 	https://www.iccf.nl/
 
-You can also sponsor the development of Vim.  Vim sponsors can vote for
-features.  See |sponsor|.  The money goes to Uganda anyway.
+您也可以资助 Vim 的开发。Vim 的资助者可以对功能进行投票选举，见 |sponsor|。无
+论哪种方式，钱都会送往乌干达的。
 
-The Open Publication License applies to the Vim documentation, see
-|manual-copyright|.
+Vim 的文档是以开放式发行许可证 (Open Publication License) 发布的，见
+|manual-copyright|。
 
-=== begin of license ===
+=== 许可证开始 ===
+(译者注: 本翻译只供参考。我们不承担任何错漏之处引起的法律责任。VIM 许可证必须
+以英文形式完整出现。如有疑义，一律以英文原文为准。)
 
-VIM LICENSE
+VIM 许可证
 
-I)  There are no restrictions on distributing unmodified copies of Vim except
-    that they must include this license text.  You can also distribute
-    unmodified parts of Vim, likewise unrestricted except that they must
-    include this license text.  You are also allowed to include executables
-    that you made from the unmodified Vim sources, plus your own usage
-    examples and Vim scripts.
+I)  可以任意发布没有修改的 Vim 的拷贝，但是必须保证包含本许可证。您也可以发布
+    未经修改的部分 Vim，同样也必须包含这份许可证。发布由未经修改的 Vim 源代码
+    所编译出的 Vim 可执行文件，外加您自己的应用实例和 Vim 脚本也是允许的。
 
-II) It is allowed to distribute a modified (or extended) version of Vim,
-    including executables and/or source code, when the following four
-    conditions are met:
-    1) This license text must be included unmodified.
-    2) The modified Vim must be distributed in one of the following five ways:
-       a) If you make changes to Vim yourself, you must clearly describe in
-	  the distribution how to contact you.  When the maintainer asks you
-	  (in any way) for a copy of the modified Vim you distributed, you
-	  must make your changes, including source code, available to the
-	  maintainer without fee.  The maintainer reserves the right to
-	  include your changes in the official version of Vim.  What the
-	  maintainer will do with your changes and under what license they
-	  will be distributed is negotiable.  If there has been no negotiation
-	  then this license, or a later version, also applies to your changes.
-	  The current maintainers are listed here: https://github.com/orgs/vim/people.
-	  If this changes it will be announced in appropriate places (most likely
-	  vim.sf.net, www.vim.org and/or comp.editors).  When it is completely
-	  impossible to contact the maintainer, the obligation to send him
-	  your changes ceases.  Once the maintainer has confirmed that he has
-	  received your changes they will not have to be sent again.
-       b) If you have received a modified Vim that was distributed as
-	  mentioned under a) you are allowed to further distribute it
-	  unmodified, as mentioned at I).  If you make additional changes the
-	  text under a) applies to those changes.
-       c) Provide all the changes, including source code, with every copy of
-	  the modified Vim you distribute.  This may be done in the form of a
-	  context diff.  You can choose what license to use for new code you
-	  add.  The changes and their license must not restrict others from
-	  making their own changes to the official version of Vim.
-       d) When you have a modified Vim which includes changes as mentioned
-	  under c), you can distribute it without the source code for the
-	  changes if the following three conditions are met:
-	  - The license that applies to the changes permits you to distribute
-	    the changes to the Vim maintainer without fee or restriction, and
-	    permits the Vim maintainer to include the changes in the official
-	    version of Vim without fee or restriction.
-	  - You keep the changes for at least three years after last
-	    distributing the corresponding modified Vim.  When the maintainer
-	    or someone who you distributed the modified Vim to asks you (in
-	    any way) for the changes within this period, you must make them
-	    available to him.
-	  - You clearly describe in the distribution how to contact you.  This
-	    contact information must remain valid for at least three years
-	    after last distributing the corresponding modified Vim, or as long
-	    as possible.
-       e) When the GNU General Public License (GPL) applies to the changes,
-	  you can distribute the modified Vim under the GNU GPL version 2 or
-	  any later version.
-    3) A message must be added, at least in the output of the ":version"
-       command and in the intro screen, such that the user of the modified Vim
-       is able to see that it was modified.  When distributing as mentioned
-       under 2)e) adding the message is only required for as far as this does
-       not conflict with the license used for the changes.
-    4) The contact information as required under 2)a) and 2)d) must not be
-       removed or changed, except that the person himself can make
-       corrections.
+II) 在满足以下全部四个条件的前提下，您可以发布经过修改 (或扩充) 的 Vim 版本，
+    包括可执行文件 和/或 源代码:
+    1) 本许可证必须包含在内，并且不能被修改。
+    2) 经过修改的 Vim 必须以下述五种方式之一发布:
+      a) 如果您本人对 Vim 做了改动，您必须在发布版本里清楚地说明如何与您联系。
+	 当 Vim 的维护者 (以任何方式) 向您索取您所发布的 Vim 时，您必须把所做
+	 的改动包括源代码无偿地提供出来。维护者保留把这些改动加入 Vim 正式版本
+	 的权利。至于维护者怎样处理这些改动，以及用什么许可证发布，可以协商。
+	 如果没有协商，那么，本许可证，或者它更新的版本，同样适用于您做出的改
+	 动。Vim 现在的维护者是 Bram Moolenaar <Bram@vim.org>。如果维护者发生
+	 变动，会在合适的地方 (很可能是 vim.sf.net、www.vim.org 和/或
+	 comp.editors) 公布，当完全不能与维护者联系时，发送变更的约定自动终
+	 止。一旦维护者确认收到了您所做的修改，您就不必再次发送了。
 
-III) If you distribute a modified version of Vim, you are encouraged to use
-     the Vim license for your changes and make them available to the
-     maintainer, including the source code.  The preferred way to do this is
-     by e-mail or by uploading the files to a server and e-mailing the URL.
-     If the number of changes is small (e.g., a modified Makefile) e-mailing a
-     context diff will do.  The e-mail address to be used is
-     <maintainer@vim.org>
+      b) 如果您得到的是一个修改过的 Vim，并且它是在条件 a) 下发布的，那么您可
+	 以不加改动地在条件 I) 下发布它；如果您又做了额外的改动，则这些改动受
+	 到 a) 款条文的约束。
 
-IV)  It is not allowed to remove this license from the distribution of the Vim
-     sources, parts of it or from a modified version.  You may use this
-     license for previous Vim releases instead of the license that they came
-     with, at your option.
+      c) 在您发布的经过修改的 Vim 的每一份拷贝里，提供所有的变更部分，包括源代
+	 码。提供的形式可以采用上下文风格的差异比较记录 (context diff)。您可以
+	 为添加的新代码选择许可证，但是这些更改和为其选择的许可证不能限制他人
+	 对 Vim 正式版本作出自己的改动。
 
-=== end of license ===
+      d) 在满足以下全部三个条件的前提下，您可以继续发布带有条件 c) 所提及之变
+	 更的经过修改的 Vim，而不必在发布时提供更改部分的源代码:
+	 - 这些变更所附带的许可证允许您把这些变更无偿地并且没有任何限制地提供
+	   给 Vim 的维护者，而且允许 Vim 的维护者无偿地并且没有任何限制地把这
+	   些更改加入到 Vim 的正式版本中。
+	 - 从您最后一次发布更改的 Vim 之日起，您要保存这些改动至少三年时间。在
+	   这期间，维护者或别人 (以任何方式) 向您要求提供这些变更时，您必须提
+	   供给他。
+	 - 您要在发布版本中清楚地说明如何与您联系，这个联系方式必须保证自最后
+	   一次发布相应的经过修改的 Vim 之日起至少三年有效，或尽可能长。
+      e) 当这些变更以 GPL (GNU General Public License，GNU 通用公共许可证) 发
+         布时，您可以在 GPL 版本 2，或更高版本的 GPL 下发布修改过的 Vim。
+    3) 必须添加一条改动的信息。至少要放在 "version" 命令的输出和启动画面里，好
+       让用户知道自己用的是一个修改过的 Vim。当以 2)e) 条件发布时，只有不与变
+       更适用的许可证冲突，这个信息的添加才是必要的。
+    4) 在 2)a) 和 2)d) 条件里要求的联系方式不能随便更改或删除，除非是作者自己
+       作出的更正。
 
-Note:
+III) 如果您发布一个更改过的 Vim，强烈建议您对变更部分使用 Vim 的许可证，并且对
+     维护者提供变更部分并开放源代码。最好的方式是通过电子邮件或者把文件放到服
+     务器上，通过电子邮件传送 URL。如果只修改了很少的部分 (例如，只是一个修改
+     过的 Makefile)，那么传送一个上下文风格的差异比较记录 (context diff) 就可
+     以了。电子邮件的地址是 <maintainer@vim.org>
 
-- If you are happy with Vim, please express that by reading the rest of this
-  file and consider helping needy children in Uganda.
+IV)  不允许从 Vim 的源代码的发行版本或其中部分的源代码里删除本许可证，即使来自
+     更改过的版本也是如此。您可能想用这份许可证代替以前版本的 Vim 里的许可证，
+     这可以由您自行决定。
 
-- If you want to support further Vim development consider becoming a
-  |sponsor|.  The money goes to Uganda anyway.
+=== 许可证结束 ===
 
-- According to Richard Stallman the Vim license is GNU GPL compatible.
-  A few minor changes have been made since he checked it, but that should not
-  make a difference.
+备注:
 
-- If you link Vim with a library that goes under the GNU GPL, this limits
-  further distribution to the GNU GPL.  Also when you didn't actually change
-  anything in Vim.
+- 如果您在 Vim 中找到了乐趣，请阅读剩下的部分，并且考虑一下是不是可以帮助乌干
+  达的儿童。用这种方式来表达您的喜悦之情。
 
-- Once a change is included that goes under the GNU GPL, this forces all
-  further changes to also be made under the GNU GPL or a compatible license.
+- 如果您想更好地支持 Vim 的开发工作，请考虑成为一名 |sponsor|。无论哪种方式，
+  钱都会送往乌干达的。
+
+- Richard Stallman 说，Vim 的许可证与 GNU GPL 兼容。在他看过之后，我做过很少改
+  动，但这不应该有什么影响。
+
+- 如果您在连接时所用的库是以 GPL 发放的，那么即使您没有修改 Vim，未来的发布版
+  本也必须采用 GPL 许可证。
+
+- 一旦一项变更以 GPL 发放，那么这使得以后所有的改动都以 GPL 或与 GPL 兼容的许
+  可证发放。
 
 ==============================================================================
-Kibaale Children's Centre		*kcc* *Kibaale*  *charity*
+基巴莱儿童中心				*kcc* *Kibaale*  *charity*
 
-Kibaale Children's Centre (KCC) is located in Kibaale, a small town in the
-south of Uganda, near Tanzania, in East Africa.  The area is known as Rakai
-District.  The population is mostly farmers.  Although people are poor, there
-usually is enough food.  But this district is suffering from AIDS more than
-any other part of the world.  Some say that it started there.  Estimations are
-that in the past 10 to 30% of the Ugandans are infected with HIV.  Because
-parents die, there are many orphans.  In this district about 60,000 children
-have lost one or both parents, out of a population of 350,000.  Although AIDS
-is now mostly under control, the problems are still continuing.
+基巴莱儿童中心 (Kibaale Children's Centre 简称 KCC) 位于基巴莱。基巴莱是东非乌
+干达南部的一个小镇，靠近坦桑尼亚。这里属于拉卡伊地区。大多数人是农民。虽然人们
+很穷，但通常食物很充足。这是世界上受艾滋病影响最严重的地区，有人说这里是艾滋病
+的发源地。据过去估计，有 10% - 30% 的乌干达人是 HIV (人类免疫缺陷病毒，即艾滋
+病病毒。译者) 的携带者。由于父母双亡，这里有许多孤儿。在这个仅有 35 万人口地
+区，却有大约 6 万儿童失去了双亲或单亲。尽管 AIDS 现在基本得到控制，这种状况还
+在继续。
 
-The children need a lot of help.  The KCC is working hard to provide the needy
-with food, medical care and education.  Food and medical care to keep them
-healthy now, and education so that they can take care of themselves in the
-future.  KCC works on a Christian base, but help is given to children of any
-religion.
+孩子们需要很多帮助。KCC 一直很努力地提供一些帮助，比如: 食物、医疗和教育。食物
+和医疗使他们保持健康，而教育可以让他们在以后的生活里照顾自己。KCC 是一个以基督
+教为基础的组织，但是他们为任何宗教信仰的孩子提供帮助。
 
-The key to solving the problems in this area is education.  This has been
-neglected in the past years with president Idi Amin and the following civil
-wars.  Now that the government is stable again, the children and parents have
-to learn how to take care of themselves and how to avoid infections.  There is
-also help for people who are ill and hungry, but the primary goal is to
-prevent people from getting ill and to teach them how to grow healthy food.
+解决问题的关键是这一地区的教育。然而在伊迪·阿明总统执政期间以及后来的国内战争
+的几年时间里，这一问题被忽视了。现在政局已经稳定，孩子们和他们的父母有必要学会
+怎样照顾自己，以及如何避免感染。饥饿的人和生病的人也同样需要帮助，但我们最主要
+的目的是让他们远离疾病，教他们怎样种植健康的食物。
 
-Most of the orphans are living in an extended family.  An uncle or older
-sister is taking care of them.  Because these families are big and the income
-(if any) is low, a child is lucky if it gets healthy food.  Clothes, medical
-care and schooling is beyond its reach.  To help these needy children, a
-sponsorship program was put into place.  A child can be financially adopted.
-For a few dollars a month KCC sees to it that the child gets indispensable
-items, is healthy, goes to school and KCC takes care of anything else that
-needs to be done for the child and the family that supports it.
+大多数孤儿都住在亲戚家里，由叔叔和稍大一点的姐姐照顾他们。因为家庭很大，所以收
+入 (即使有的话也) 很少。一个孩子如果能得到健康的食物就很幸运了。衣服、医疗、受
+教育，这些都是奢望。于是，为了帮助这些可怜的孩子，一套捐助程序启动了。一个孩子
+可以通过人们的捐助来收养。每月捐助几美元，由 KCC 来管理，就可以给孩子们生活必
+需品，保持健康，以及让他们上学。KCC 还会做所有其它对孩子和抚养他们的家庭有必要
+的事情。
 
-Besides helping the child directly, the environment where the child grows up
-needs to be improved.  KCC helps schools to improve their teaching methods.
-There is a demonstration school at the centre and teacher trainings are given.
-Health workers are being trained, hygiene education is carried out and
-households are stimulated to build a proper latrine.  I helped setting up a
-production site for cement slabs.  These are used to build a good latrine.
-They are sold below cost price.
+除了直接帮助孩子外，孩子们的成长环境也有待改善。KCC 帮助学校改进他们的教学方
+法。在中心有一个示范学校，老师们可以在那里得到培训。同时，也进行医疗健康的人员
+培训，展开卫生教育活动，每个家庭还被鼓励建造合适的洗手间。我帮忙建设了生产水泥
+板的地方，水泥板可以用来做一个很好的洗手间。它们的出售价格低于成本价。
 
-There is a clinic at the project, which provides children and their family
-medical help.  Since 2020 a maternity ward was added and 24/7 service is
-available.  When needed, transport to a hospital is offered.  Immunization
-programs are carried out and help is provided when an epidemic is breaking out
-(measles and cholera have been a problem).
+我们还建了一个诊所，可以给孩子和他们的家庭提供一些医疗帮助。2020 年开始新添了
+一间产房并有 24/7 服务。如果需要，提供病人转往医院的交通工具。接种疫苗的程序也
+已经启动，传染病肆虐的时候也可以提供帮助 (麻疹和霍乱曾经是一个问题)。
 							*donate*
-Summer 1994 to summer 1995 I spent a whole year at the centre, working as a
-volunteer.  I have helped to expand the centre and worked in the area of water
-and sanitation.  I learned that the help that the KCC provides really helps.
-When I came back to Holland, I wanted to continue supporting KCC.  To do this
-I'm raising funds and organizing the sponsorship program.  Please consider one
-of these possibilities:
+从 1994 年夏天到 1995 年夏天，我作为志愿者在中心工作了整整一年的时间。其间，我
+帮助参与了中心的扩建，并从事水和卫生设备方面的工作。我觉得 KCC 所提供的这些帮
+助真的是很有用。我回到荷兰后，还想继续支持 KCC。于是我筹措资金组织了这个捐助项
+目。请考虑下面几种捐助方式:
 
-1.  Sponsor a child in primary school: 17 euro a month (or more).
-2.  Sponsor a child in secondary school: 25 euro a month (or more).
-3.  Sponsor the clinic: Any amount a month or quarter
-4.  A one-time donation
+1、捐助一个读小学的孩子: 每月 17 欧元 (或更多)。
+2、捐助一个读中学的孩子: 每月 25 欧元 (或更多)。
+3、捐助诊所: 每月或每季度，数额不限。
+4、一次性捐赠。
 
-Compared with other organizations that do child sponsorship the amounts are
-very low.  This is because the money goes directly to the centre.  Less than
-5% is used for administration.  This is possible because this is a small
-organization that works with volunteers.  If you would like to sponsor a
-child, you should have the intention to do this for at least one year.
+相对于其它资助儿童的组织，这笔钱的数额相对很低。这是因为款项直接进入中心，其中
+不到 5% 的捐款用于管理，对于一个小型的志愿者组织来说，做到这一点并不难。如果您
+想捐助一名儿童，那么您应该有至少捐助一年的准备。
 
-How do you know that the money will be spent right?  First of all you have my
-personal guarantee as the author of Vim.  I trust the people that are working
-at the centre, I know them personally.  Furthermore, the centre has been
-co-sponsored and inspected by World Vision, Save the Children Fund and is now
-under the supervision of Pacific Academy Outreach Society.  The centre is
-visited about once a year to check the progress (at our own cost).  I have
-visited the centre myself many times, starting in 1993.  The visit reports are
-on the ICCF web site.
+您怎么知道这些钱用到了该用的地方？首先，以我个人 (Vim 的作者) 的名义向您保证。
+我信任在中心工作的人，并且对他们个人非常了解。再者，中心是世界宣明会 (World
+Vision)，拯救儿童基金会 (Save the Children Fund) 合作捐资建成的，并受到过它们
+的审视，现在由 Pacific Academy Outreach Society 监管。我们几乎每年都自费到中心
+去查看进展状况，从 1993 年开始，我本人先后访问过中心很多次，在 ICCF 的网站上有
+相关报道。
 
-If you have any further questions, send e-mail: <Bram@vim.org>.
+如果您还有别的问题，请发送电邮至: <Bram@vim.org>。
 
-The address of the centre is:
+中心的地址:
 			Kibaale Children's Centre
 			p.o. box 1658
 			Masaka, Uganda, East Africa
 
-Sending money:						*iccf-donations*
+捐资地址:						*iccf-donations*
 
-Check the ICCF web site for the latest information!  See |iccf| for the URL.
+查看 ICCF 的网站以获取最新的信息！ICCF 的 URL 可以参见: |iccf|
 
 
-USA:		The methods mentioned below can be used.
-		If you must send a check send it to our Canadian partner:
+美国:		可以使用下面提到的方法。
+		如果必须要寄支票，可寄到我们的加拿大伙伴:
 		https://www.kuwasha.net/
 
-Canada:		Contact Kuwasha in Surrey, Canada.  They take care of the
-		Canadian sponsors for the children in Kibaale.  Kuwasha
-		forwards 100% of the money to the project in Uganda.  You can
-		send them a one time donation directly.
-		Look on their site for information about sponsorship:
-		https://www.kuwasha.net/
-		If you make a donation to Kuwasha you will receive a tax
-		receipt which can be submitted with your tax return.
+加拿大:		联系位于加拿大萨里 (Surrey) 市的 Kuwasha。他们会接待 Kibaale
+		儿童在加拿大的捐助者。Kuwasha 把 100% 的钱汇到乌干达的项目中。
+		您可以直接给他们汇款一次性的捐赠。
+		捐赠之后请通知我，好让我知道什么样的捐赠与 Vim 有关。关于赞助
+		的信息，参见他们的网站: https://www.kuwasha.net/
+		如果您向 Kuwasha 捐赠，您会收到一份纳税收据，可以在报税的时候
+		把它和报税单一并交上。
 
-Holland:	Transfer to the account of "Stichting ICCF Holland" in
-		Amersfoort.  This will allow for tax deduction if you live in
-		Holland.  ING bank, IBAN: NL95 INGB 0004 5487 74
+荷兰:		请汇款至在 Amersfoort 的 "Stichting ICCF Holland" 的账户，如果
+		您住在荷兰，可以减税。ING 银行，IBAN: NL95 INGB 0004 5487 74
 
-Germany:	It is possible to make donations that allow for a tax return.
-		Check the ICCF web site for the latest information:
+德国:		可以在捐赠时得到税款返还。查阅 ICCF 网站获取更多的信息:
 			https://iccf-holland.org/germany.html
 
-Europe:		Use a bank transfer if possible.  See "Others" below for the
-		swift code and IBAN number.
-		Any other method should work.  Ask for information about
-		sponsorship.
+欧洲:		请尽量通过银行汇款，swift 代码和 IBAN 号见下方的 "其它" 一节。
+		其它方式应该也可以，请询问提供捐助信息的单位。
 
-Credit Card:	You can use PayPal to send money with a Credit card.  This is
-		the most widely used Internet based payment system.  It's
-		really simple to use.  Use this link to find more info:
+信用卡:		您可以通过 PayPal 来使用信用卡进行捐资，这是 Internet 上应用最
+		广的一个结帐系统，用起来很简单。下面的链接提供详情:
 		    https://www.paypal.com/en_US/mrb/pal=XAC62PML3GF8Q
-		The e-mail address for sending the money to is:
+		捐款的电邮地址:
 		    Bram@iccf-holland.org
 
-Others:		Transfer to this account if possible:
+其它:		请汇款至下面几个帐户之一:
 		    ING bank:	IBAN: NL95 INGB 0004 5487 74
 				Swift code: INGBNL2A
-		    under the name "stichting ICCF Holland", Amersfoort
-		Checks are not accepted.
+		    收款人的名字是 "stichting ICCF Holland", Amersfoort
+		不接受支票。
 
 
  vim:tw=78:ts=8:noet:ft=help:norl:

@@ -1,89 +1,80 @@
-*tips.txt*      Nvim
+*tips.txt*    Nvim						  译者：Peler
 
 
-		  VIM REFERENCE MANUAL    by Bram Moolenaar
+		  VIM 参考手册    by Bram Moolenaar
+				译者: iCrazy <icrazy@ustc.edu>、tocer
 
 
-Tips and ideas for using Vim				*tips*
+使用 Vim 的技巧						*tips*
 
-These are just a few that we thought would be helpful for many users.
-You can find many more tips on the wiki.  The URL can be found on
-https://www.vim.org
+这里只是一小部分我们认为会对很多用户有用的技巧。更多的技巧都在 wiki 上。URL 可
+以从这里找到:
+http://www.vim.org
 
-Don't forget to browse the user manual, it also contains lots of useful tips
-|usr_toc.txt|.
+别忘记浏览用户手册，里面也有很多实用的技巧 |usr_toc.txt|。
 
-                                      Type |gO| to see the table of contents.
-
-==============================================================================
-Editing C programs					*C-editing*
-
-There are quite a few features in Vim to help you edit C program files.  Here
-is an overview with tags to jump to:
-
-|usr_29.txt|		Moving through programs chapter in the user manual.
-|usr_30.txt|		Editing programs chapter in the user manual.
-|C-indenting|		Automatically set the indent of a line while typing
-			text.
-|=|			Re-indent a few lines.
-|format-comments|	Format comments.
-
-|:checkpath|		Show all recursively included files.
-|[i|			Search for identifier under cursor in current and
-			included files.
-|[_CTRL-I|		Jump to match for "[i"
-|[I|			List all lines in current and included files where
-			identifier under the cursor matches.
-|[d|			Search for define under cursor in current and included
-			files.
-
-|CTRL-]|		Jump to tag under cursor (e.g., definition of a
-			function).
-|CTRL-T|		Jump back to before a CTRL-] command.
-|:tselect|		Select one tag out of a list of matching tags.
-
-|gd|			Go to Declaration of local variable under cursor.
-|gD|			Go to Declaration of global variable under cursor.
-
-|gf|			Go to file name under the cursor.
-
-|%|			Go to matching (), {}, [], `/* */`, #if, #else, #endif.
-|[/|			Go to previous start of comment.
-|]/|			Go to next end of comment.
-|[#|			Go back to unclosed #if, #ifdef, or #else.
-|]#|			Go forward to unclosed #else or #endif.
-|[(|			Go back to unclosed '('
-|])|			Go forward to unclosed ')'
-|[{|			Go back to unclosed '{'
-|]}|			Go forward to unclosed '}'
-
-|v_ab|			Select "a block" from "[(" to "])", including braces
-|v_ib|			Select "inner block" from "[(" to "])"
-|v_aB|			Select "a block" from `[{` to `]}`, including brackets
-|v_iB|			Select "inner block" from `[{` to `]}`
+                输入 |gO| 以查看表格内容
 
 ==============================================================================
-Finding where identifiers are used			*ident-search*
+编辑 C 程序						*C-editing*
 
-You probably already know that |tags| can be used to jump to the place where a
-function or variable is defined.  But sometimes you wish you could jump to all
-the places where a function or variable is being used.  This is possible in
-two ways:
-1. Using the |:grep| command.  This should work on most Unix systems,
-   but can be slow (it reads all files) and only searches in one directory.
-2. Using ID utils.  This is fast and works in multiple directories.  It uses a
-   database to store locations.  You will need some additional programs for
-   this to work.  And you need to keep the database up to date.
+Vim 里面有不少功能可以帮助你们编辑 C 程序。以下是一个概括，你们可以使用标签跳
+转到具体的内容中去:
 
-Using the GNU id-tools:
+|usr_29.txt|		用户手册中关于在程序的不同部分间移动的内容。
+|usr_30.txt|		用户手册中关于编辑程序的内容。
+|C-indenting|		输入时自动设置每行的缩进。
+|=|			重新缩进一些行。
+|format-comments|	对注释进行排版。
 
-What you need:
-- The GNU id-tools installed (mkid is needed to create ID and lid is needed to
-  use the macros).
-- An identifier database file called "ID" in the current directory.  You can
-  create it with the shell command "mkid file1 file2 ..".
+|:checkpath|		显示所有被 (嵌套) 包含的文件。
+|[i|			在当前和被包含的文件中查找光标所在的的标识符。
+|[_CTRL-I|		跳到 "[i" 的匹配。
+|[I|			列出在当前和被包含的文件中匹配光标所在的标识符的行。
+|[d|			在当前和被包含的文件中查找光标所在的标识符的宏定义。
 
-Put this in your |init.vim|: >
+|CTRL-]|		跳到光标所在的标签处 (例如: 函数的定义)。
+|CTRL-T|		跳回执行 CTRL-] 命令前的地方。
+|:tselect|		从一连串匹配的标签中选出一个。
+
+|gd|			跳到光标所在的局部变量的声明处。
+|gD|			跳到光标所在的全局变量的声明处。
+
+|gf|			跳到光标所在的文件名表示的文件。
+
+|%|			跳到匹配的 ()、{}、[]、/* */、#if、#else、#endif 处。
+|[/|			跳到上一个注释开始的位置。
+|]/|			跳到下一个注释结束的位置。
+|[#|			反向到未闭合的 #if、#ifdef 或 #else 处。
+|]#|			正向到未闭合的 #else 或 #endif 处。
+|[(|			反向到未闭合的 '(' 处。
+|])|			正向到未闭合的 ')' 处。
+|[{|			反向到未闭合的 '{' 处。
+|]}|			正向到未闭合的 '}' 处。
+
+|v_ab|			选中 "一个块" ("a block")，从 "[(" 至 "])"，含括号
+|v_ib|			选中 "内含块" ("inner block")，从 "[(" 至 "])"
+|v_aB|			选中 "一个大块" ("a Block")，从 "[{" 至 "]}"，含括号
+|v_iB|			选中 "内含大块" ("inner Block")，从 "[{" 至 "]}"
+
+==============================================================================
+查找使用标识符的地方					*ident-search*
+
+你应该已经知道 |tags| 可以被用来跳转到定义函数和变量的地方。但是有时你希望跳转
+到使用函数和变量的地方。可以用以下两种方法实现:
+1. 使用 |:grep| 命令。这个应该可以在大多数 Unix 系统上工作，但是速度会比较慢
+(因为它读取所有的文件)，并且只能在一个目录中搜索。
+2. 使用 ID 工具集。这个速度比较快而且可以搜索多个目录。它使用一个数据库来存放
+定位信息。你需要一些额外的程序来使它得以工作，并且你必须使数据库不断保持更新。
+
+使用 GNU id 工具集 (id-tools):
+
+你所需要的:
+- 安装 GNU id 工具集 (mkid 是用来创建 ID 的，lid 是用来运行宏的)
+- 一个在当前目录下名为 "ID" 的标识符数据库。你可以用外壳命令 "mkid file1 file2
+  .." 来创建它。
+
+把这些添加写你的 |init.vim| 文件中: >
 	map _u :call ID_search()<Bar>execute "/\\<" .. g:word .. "\\>"<CR>
 	map _n :n<Bar>execute "/\\<" .. g:word .. "\\>"<CR>
 
@@ -94,109 +85,104 @@ Put this in your |init.vim|: >
 	  execute "next " .. x
 	endfun
 
-To use it, place the cursor on a word, type "_u" and vim will load the file
-that contains the word.  Search for the next occurrence of the word in the
-same file with "n".  Go to the next file with "_n".
+使用的时候，把光标放在一个单词上，敲入 "_u"，然后 vim 会读入含有这个单词的文
+件。使用 "n" 查找这个单词在相同文件中下一次的出现的地方。使用 "_n" 可以跳转到
+下一个文件。
 
-This has been tested with id-utils-3.2 (which is the name of the id-tools
-archive file on your closest gnu-ftp-mirror).
+这些操作已经使用 id-utils-3.2 (这是位于距你最近的 gnu ftp 镜像服务器上的档案
+名称) 测试通过了。
 
-[the idea for this comes from Andreas Kutschera]
+[这个的想法来自于 Andreas Kutschera]
 
 ==============================================================================
-Scrolling in Insert mode				*scroll-insert*
+在插入模式下滚屏					*scroll-insert*
 
-If you are in insert mode and you want to see something that is just off the
-screen, you can use CTRL-X CTRL-E and CTRL-X CTRL-Y to scroll the screen.
+如果你处于插入模式下并且想看恰好在屏幕范围以外的一些东西，可用 CTRL-X CTRL-E
+和 CTRL-X CTRL-Y 来滚屏。
 						|i_CTRL-X_CTRL-E|
 
-To make this easier, you could use these mappings: >
+更简便地，可用以下映射: >
 	:inoremap <C-E> <C-X><C-E>
 	:inoremap <C-Y> <C-X><C-Y>
-You then lose the ability to copy text from the line above/below the cursor
-|i_CTRL-E|.
+不过这样你就不能使用从光标上一行/下一行拷贝文字的功能了 |i_CTRL-E|。
 
-Also consider setting 'scrolloff' to a larger value, so that you can always see
-some context around the cursor.  If 'scrolloff' is bigger than half the window
-height, the cursor will always be in the middle and the text is scrolled when
-the cursor is moved up/down.
+还可以考虑把 'scrolloff' 设置得大一些，这样就总能看到光标附近的上下文了。如果
+'scrolloff' 的值大于窗口高度的一半，在向上或向下移动光标时，文字会上下卷动，但
+是光标会始终停留在屏幕中间的位置。
 
 ==============================================================================
-Smooth scrolling					*scroll-smooth*
+平滑滚屏						*scroll-smooth*
 
-If you like the scrolling to go a bit smoother, you can use these mappings: >
+如果你希望你的滚屏更加平滑一些，你可以使用以下的映射: >
 	:map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 	:map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 ==============================================================================
-Correcting common typing mistakes			*type-mistakes*
+纠正普通的录入错误					*type-mistakes*
 
-When there are a few words that you keep on typing in the wrong way, make
-abbreviations that correct them.  For example: >
+如果有一些单词你总是敲错，你可以使用缩写来改正它们。例如: >
 	:ab teh the
 	:ab fro for
 
 ==============================================================================
-Counting words, lines, etc.				*count-items*
+统计单词数、行数等					*count-items*
 
-To count how often any pattern occurs in the current buffer use the substitute
-command and add the 'n' flag to avoid the substitution.  The reported number
-of substitutions is the number of items.  Examples: >
+如果需要统计缓冲区中一个模式 (pattern) 出现的频率，使用 substitute 命令并加入
+'n' 标志位以避免实际的替代。Vim 报告的已替代的数目就是模式出现的次数。例: >
 
-	:%s/./&/gn		characters
-	:%s/\i\+/&/gn		words
-	:%s/^//n		lines
-	:%s/the/&/gn		"the" anywhere
-	:%s/\<the\>/&/gn	"the" as a word
+	:%s/./&/gn		字符数
+	:%s/\i\+/&/gn		单词数
+	:%s/^//n		行数
+	:%s/the/&/gn		任何地方出现的 "the"
+	:%s/\<the\>/&/gn	作为单词出现的 "the"
 
-You might want to reset 'hlsearch' or do ":nohlsearch".
-Add the 'e' flag if you don't want an error when there are no matches.
+此时你可能希望复位 'hlsearch' 或者使用 ":nohlsearch"。
+如果你希望没有匹配的时候不报错，加上标志位 'e'。
 
-An alternative is using |v_g_CTRL-G| in Visual mode.
+另一种办法就是在可视模式下使用 |v_g_CTRL-G|。
 
-If you want to find matches in multiple files use |:vimgrep|.
+如果你想在多个文件中查找匹配，用 |:vimgrep|。
 
 							*count-bytes*
-If you want to count bytes, you can use this:
+如果你想统计字节数，可以这样做:
 
-	Visually select the characters (block is also possible)
-	Use "y" to yank the characters
-	Use the strlen() function: >
+	可视选择那些字符 (列块选择也可以)
+	使用 "y" 来拷贝这些字符
+	使用 strlen() 函数: >
 		:echo strlen(@")
-A line break is counted for one byte.
+这里换行符被当做一个字节。
 
 ==============================================================================
-Restoring the cursor position				*restore-position*
+恢复光标位置						*restore-position*
 
-Sometimes you want to write a mapping that makes a change somewhere in the
-file and restores the cursor position, without scrolling the text.  For
-example, to change the date mark in a file: >
+有时你希望写一个在文件中的其他地方做一些修改然后恢复光标的位置且不滚动文本的映
+射。例如，要修改文件中的日期标记，可以这样: >
+
    :map <F2> msHmtgg/Last [cC]hange:\s*/e+1<CR>"_D"=strftime("%Y %b %d")<CR>p'tzt`s
 
-Breaking up saving the position:
-	ms	store cursor position in the 's' mark
-	H	go to the first line in the window
-	mt	store this position in the 't' mark
+分解出保存位置的命令:
+	ms	把光标位置存放在位置标记 's' 中
+	H	跳转到窗口的顶端
+	mt	把这个位置存放在位置标记 't' 中
 
-Breaking up restoring the position:
-	't	go to the line previously at the top of the window
-	zt	scroll to move this line to the top of the window
-	`s	jump to the original position of the cursor
+分解出恢复位置的命令:
+	't	跳转到先前位于窗口顶端的那一行
+	zt	滚屏，使这一行位于窗口的顶端
+	`s	跳转到最初光标的位置
 
-For something more advanced see |winsaveview()| and |winrestview()|.
+更高级的方法见 |winsaveview()| 和 |winrestview()|。
 
 ==============================================================================
-Renaming files						*rename-files*
+文件更名						*rename-files*
 
-Say I have a directory with the following files in them (directory picked at
-random :-):
+假如我有一个目录，里面有如下的文件 (目录是随机选取的):
 
 buffer.c
 charset.c
 digraph.c
 ...
 
-and I want to rename `*.c` `*.bla`.  I'd do it like this: >
+现在我希望把 *.c 更名为 *.bla。我可以这样做: >
 
 	$ vim
 	:r !ls *.c
@@ -205,213 +191,183 @@ and I want to rename `*.c` `*.bla`.  I'd do it like this: >
 	:q!
 
 ==============================================================================
-Change a name in multiple files				*change-name*
+更改多个文件中的一个名字				*change-name*
 
-Example for using a script file to change a name in several files:
+使用脚本文件在若干文件中更改一个名字的示例:
 
-	Create a file "subs.vim" containing substitute commands and a :update
-	command: >
+	创建文件 "subs.vim"，包含替代命令和 :update 命令: >
 		:%s/Jones/Smith/g
 		:%s/Allen/Peter/g
 		:update
 <
-	Execute Vim on all files you want to change, and source the script for
-	each argument: >
+	在所有你要改动的文件上执行 Vim，然后为每个参数执行该脚本: >
 
 		vim *.let
 		argdo source subs.vim
 
-See |:argdo|.
+参见 |:argdo|。
 
 ==============================================================================
-Speeding up external commands				*speed-up*
+加速外部命令的执行					*speed-up*
 
-In some situations, execution of an external command can be very slow.  This
-can also slow down wildcard expansion on Unix.  Here are a few suggestions to
-increase the speed.
+在某些情况下，外部命令执行起来非常地慢。而且还会减慢 Unix 上的通配符扩展。这儿
+有一些可以加快速度的建议:
 
-If your .cshrc (or other file, depending on the shell used) is very long, you
-should separate it into a section for interactive use and a section for
-non-interactive use (often called secondary shells).  When you execute a
-command from Vim like ":!ls", you do not need the interactive things (for
-example, setting the prompt).  Put the stuff that is not needed after these
-lines: >
+如果你的 .cshrc 文件 (根据你使用的外壳，文件名可能不同) 非常地长，你应该把它分
+割成两节: 需要和用户交互的、无需和用户交互的 (经常被称作二级外壳)。当你在 Vim
+中执行一个类似 ":!ls" 的命令时，你就不需要和用户交互的那一部分 (例如: 设置提示
+符)。把那些不必要的部分放到下面这些行后面去: >
 
 	if ($?prompt == 0) then
 		exit 0
 	endif
 
-Another way is to include the "-f" flag in the 'shell' option, e.g.: >
+另一个办法是在 'shell' 选项中包含 "-f" 参数，例如: >
 
 	:set shell=csh\ -f
 
-(the backslash is needed to include the space in the option).
-This will make csh completely skip the use of the .cshrc file.  This may cause
-some things to stop working though.
+(这儿的反斜杠是必需的，这样才能在选项中表示一个空格)。
+这样就会使 csh 完全跳过 .cshrc 文件。不过这样可能会造成一些程序不能正常运行。
 
 ==============================================================================
-Useful mappings						*useful-mappings*
+有用的映射					*useful-mappings*
 
-Here are a few mappings that some people like to use.
+这里提供一些部分人喜欢使用的映射。
 
 							*map-backtick*  >
 	:map ' `
-Make the single quote work like a backtick.  Puts the cursor on the column of
-a mark, instead of going to the first non-blank character in the line.
+使得单引号和 ' 一样工作。把光标移动到一个位置标记所在的列，而不是那一行的第一
+个非空白字符。
 
 							*emacs-keys*
-For Emacs-style editing on the command-line: >
-	" start of line
+要在命令行上实现 Emacs 风格的编辑操作: >
+	" 至行首
 	:cnoremap <C-A>		<Home>
-	" back one character
+	" 后退一个字符
 	:cnoremap <C-B>		<Left>
-	" delete character under cursor
+	" 删除光标所在的字符
 	:cnoremap <C-D>		<Del>
-	" end of line
+	" 至行尾
 	:cnoremap <C-E>		<End>
-	" forward one character
+	" 前进一个字符
 	:cnoremap <C-F>		<Right>
-	" recall newer command-line
+	" 取回较新的命令行
 	:cnoremap <C-N>		<Down>
-	" recall previous (older) command-line
+	" 取回以前 (较旧的) 命令行
 	:cnoremap <C-P>		<Up>
-	" back one word
+	" 后退一个单词
 	:cnoremap <Esc><C-B>	<S-Left>
-	" forward one word
+	" 前进一个单词
 	:cnoremap <Esc><C-F>	<S-Right>
 <
 							*format-bullet-list*
-This mapping will format any bullet list.  It requires that there is an empty
-line above and below each list entry.  The expression commands are used to
-be able to give comments to the parts of the mapping. >
+这个映射可以排版任何带符号的 (bullet) 列表，不过它需要在每一个条目的上下都各有
+一个空行。使用表达式命令，以便对映射的部分进行注释: >
 
-	:let m =     ":map _f  :set ai<CR>"   " need 'autoindent' set
-	:let m ..= "{O<Esc>"		      " add empty line above item
-	:let m ..= "}{)^W"		      " move to text after bullet
-	:let m ..= "i     <CR>     <Esc>"     " add space for indent
-	:let m ..= "gq}"		      " format text after the bullet
-	:let m ..= "{dd"		      " remove the empty line
-	:let m ..= "5lDJ"		      " put text after bullet
-	:execute m			      |" define the mapping
+	:let m =     ":map _f  :set ai<CR>"   " 需要置位 'autoindent'
+	:let m ..= "{O<Esc>"		      " 在项目上面加入空行
+	:let m ..= "}{)^W"		      " 跳转到 bullet 之后的文本
+	:let m ..= "i     <CR>     <Esc>"     " 为缩进加空格
+	:let m ..= "gq}"		      " 排版 bullet 之后的文本
+	:let m ..= "{dd"		      " 删除空行
+	:let m ..= "5lDJ"		      " 把文本放到 bullet 之后
+	:execute m			      |" 定义这个 mapping
 
-(<> notation |<>|.  Note that this is all typed literally.  ^W is "^" "W", not
-CTRL-W.)
+(<> 记法 |<>|。注意 必须按照字面逐个输入。^W 是 "^" 和 "W"，而不是 CTRL-W。)
 
-Note that the last comment starts with `|"`, because the ":execute" command
-doesn't accept a comment directly.
+注意 最后一个注释以 |" 开始，因为 ":execute" 不能直接识别一个注释。
 
-You also need to set 'textwidth' to a non-zero value, e.g., >
+你还需要把 'textwidth' 设置成一个非 0 值，例如: >
 	:set tw=70
 
-A mapping that does about the same, but takes the indent for the list from the
-first line (Note: this mapping is a single long line with a lot of spaces): >
+以下这个映射可以达到同样的效果，不过它从第一行获得列表的缩进 (备注: 这个映射其
+实只有一行，其中有很多空格): >
 	:map _f :set ai<CR>}{a                                                          <Esc>WWmmkD`mi<CR><Esc>kkddpJgq}'mJO<Esc>j
 <
 							*collapse*
-These two mappings reduce a sequence of empty (;b) or blank (;n) lines into a
-single line >
+这两个映射可以把一连串的空行 (;b) 或空白行 (;n) 压缩到一行 >
     :map ;b   GoZ<Esc>:g/^$/.,/./-j<CR>Gdd
     :map ;n   GoZ<Esc>:g/^[ <Tab>]*$/.,/[^ <Tab>]/-j<CR>Gdd
 
 ==============================================================================
-Compressing the help files				*gzip-helpfile*
+压缩帮助文件						*gzip-helpfile*
 
-For those of you who are really short on disk space, you can compress the help
-files and still be able to view them with Vim.  This makes accessing the help
-files a bit slower and requires the "gzip" program.
+对于那些磁盘空间极度紧张的人来说，你们可以压缩帮助文件。这样会使得查看帮助文
+件时稍微慢一点，并且需要 "gzip" 这个程序的支持。
 
-(1) Compress all the help files: "gzip doc/*.txt".
+(1) 压缩所有帮助文件: "gzip doc/*.txt"。
 
-(2) Edit "doc/tags" and change the ".txt" to ".txt.gz": >
+(2) 编辑文件 "doc/tags"，用 ".txt.gz" 替换 ".txt": >
 	:%s=\(\t.*\.txt\)\t=\1.gz\t=
 
-(3) Add this line to your vimrc: >
+(3) 把这一行加入到你的 vimrc 文件中: >
 	set helpfile={dirname}/help.txt.gz
 
-Where {dirname} is the directory where the help files are.  The |gzip| plugin
-will take care of decompressing the files.
-You must make sure that $VIMRUNTIME is set to where the other Vim files are,
-when they are not in the same location as the compressed "doc" directory.  See
-|$VIMRUNTIME|.
+这儿 {dirname} 是存放帮助文件的目录。|gzip| 插件会负责解压这些文件。
+如果其它 Vim 文件和存放压缩帮助的 "doc" 目录所在的位置不一致，要确保
+$VIMRUNTIME 设为存放那些 Vim 文件的目录。参见: |$VIMRUNTIME|。
 
 ==============================================================================
-Hex editing					*hex-editing* *using-xxd*
+十六进制编辑					*hex-editing* *using-xxd*
 
-See section |23.3| of the user manual.
+请看用户手册的第 |23.3| 节。
 
-If one has a particular extension that one uses for binary files (such as exe,
-bin, etc), you may find it helpful to automate the process with the following
-bit of autocmds for your |init.vim|.  Change that "*.bin" to whatever
-comma-separated list of extension(s) you find yourself wanting to edit: >
+如果你用一些专门的扩展名来命名二进制文件 (诸如 exe，bin 等等)，你会发现以下在
+|init.vim| 文件中使用的一些命令在自动处理这些文件时非常有用。你可以用你希望编辑
+的文件扩展名 (用逗号分隔) 替换以下的 "*.bin": >
 
 	" vim -b : edit binary using xxd-format!
 	augroup Binary
-	  autocmd!
-	  autocmd BufReadPre  *.bin set binary
-	  autocmd BufReadPost *.bin
-	    \ if &binary
-	    \ |   execute "silent %!xxd -c 32"
-	    \ |   set filetype=xxd
-	    \ |   redraw
-	    \ | endif
-	  autocmd BufWritePre *.bin
-	    \ if &binary
-	    \ |   let s:view = winsaveview()
-	    \ |   execute "silent %!xxd -r -c 32"
-	    \ | endif
-	  autocmd BufWritePost *.bin
-	    \ if &binary
-	    \ |   execute "silent %!xxd -c 32"
-	    \ |   set nomodified
-	    \ |   call winrestview(s:view)
-	    \ |   redraw
-	    \ | endif
+	  au!
+	  au BufReadPre  *.bin let &bin=1
+	  au BufReadPost *.bin if &bin | %!xxd
+	  au BufReadPost *.bin set ft=xxd | endif
+	  au BufWritePre *.bin if &bin | %!xxd -r
+	  au BufWritePre *.bin endif
+	  au BufWritePost *.bin if &bin | %!xxd
+	  au BufWritePost *.bin set nomod | endif
 	augroup END
 
 ==============================================================================
-Using <> notation in autocommands			*autocmd-<>*
+在自动命令中使用 <> 记法				*autocmd-<>*
 
-The <> notation is not recognized in the argument of an :autocmd.  To avoid
-having to use special characters, you could use a self-destroying mapping to
-get the <> notation and then call the mapping from the autocmd.  Example:
+在自动命令的参数中，不能识别 <> 记法。为避免使用特殊的字符，你可以使用一个可以
+自我毁灭的映射来得到 <> 记法，然后从自动命令中调用这个映射。举例如下:
 
 						*map-self-destroy*  >
- " This is for automatically adding the name of the file to the menu list.
- " It uses a self-destroying mapping!
- " 1. use a line in the buffer to convert the 'dots' in the file name to \.
- " 2. store that in register '"'
- " 3. add that name to the Buffers menu list
- " WARNING: this does have some side effects, like overwriting the
- " current register contents and removing any mapping for the "i" command.
+ " 此命令自动把文件名加入到菜单列表中。
+ " 它使用了一个可以自我毁灭的映射！
+ " 1. 用缓冲区中的一行把文件名中的点 ('dots') 转换成 \.
+ " 2. 把该行存放在寄存器 '"' 中
+ " 3. 把该名字加入缓冲区菜单列表
+ " 警 告: 这会有些副作用，比如: 覆盖当前的寄存器内容和删除任何 "i" 命令的映射
  "
  autocmd BufNewFile,BufReadPre * nmap i :nunmap i<CR>O<C-R>%<Esc>:.g/\./s/\./\\./g<CR>0"9y$u:menu Buffers.<C-R>9 :buffer <C-R>%<C-V><CR><CR>
  autocmd BufNewFile,BufReadPre * normal i
 
-Another method, perhaps better, is to use the ":execute" command.  In the
-string you can use the <> notation by preceding it with a backslash.  Don't
-forget to double the number of existing backslashes and put a backslash before
-'"'.
->
+另一个或许更好一些的办法就是使用 ":execute" 命令。在字符串中，你可以通过在 <>
+记法前面加一个反斜杠的方法来使用它。别忘了加倍已经存在的反斜杠的数目以及在 '"'
+前面放一个反斜杠。 >
+
   autocmd BufNewFile,BufReadPre * exe "normal O\<C-R>%\<Esc>:.g/\\./s/\\./\\\\./g\<CR>0\"9y$u:menu Buffers.\<C-R>9 :buffer \<C-R>%\<C-V>\<CR>\<CR>"
 
-For a real buffer menu, user functions should be used (see |:function|), but
-then the <> notation isn't used, which defeats using it as an example here.
+为了建立一个真正的缓冲区菜单，需要用到用户函数 (参见 |:function|)，不过那里不
+使用 <> 记法，所以失去了在这里举例的意义。
 
 ==============================================================================
-Highlighting matching parens					*match-parens*
+高亮匹配括号							*match-parens*
 
-This example shows the use of a few advanced tricks:
-- using the |CursorMoved| autocommand event
-- using |searchpairpos()| to find a matching paren
-- using |synID()| to detect whether the cursor is in a string or comment
-- using |:match| to highlight something
-- using a |pattern| to match a specific position in the file.
+本例演示一些高级技巧的用法:
+- 使用 |CursorMoved| 自动命令事件
+- 使用 |searchpairpos()| 查找匹配括号
+- 使用 |synID()| 检测光标是否在字符串或注释里
+- 使用 |:match| 高亮一些内容
+- 使用 |pattern| 匹配文件的特定位置。
 
-This should be put in a Vim script file, since it uses script-local variables.
-It skips matches in strings or comments, unless the cursor started in string
-or comment.  This requires syntax highlighting.
+它应该被放在 Vim 脚本里，因为使用了局部于脚本的变量。除非光标起始于字符串或者
+注释的内部，它会跳过字符串或注释里的匹配。这需要语法高亮的支持。
 
-A slightly more advanced version is used in the |matchparen| plugin.
+|matchparen| 插件使用的是一个稍稍改进的版本。
 >
 	let s:paren_hl_on = 0
 	function s:Highlight_Matching_Paren()
@@ -442,7 +398,7 @@ A slightly more advanced version is used in the |matchparen| plugin.
 	    let c2 = '\]'
 	  endif
 	  let s_skip ='synIDattr(synID(line("."), col("."), 0), "name") ' ..
-		\ '=~?	"string\\|comment"'
+		\ '=~?  "string\\|comment"'
 	  execute 'if' s_skip '| let s_skip = 0 | endif'
 
 	  let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip)
@@ -459,10 +415,10 @@ A slightly more advanced version is used in the |matchparen| plugin.
 <
 
 ==============================================================================
-Opening help in the current window				*help-curwin*
+在当前窗口打开帮助						*help-curwin*
 
-By default, help is displayed in a split window.  If you prefer it opens in
-the current window, try this custom `:HelpCurwin` command:
+缺省在分割窗口打开帮助。如果喜欢在当前窗口打开帮助，可用下面的定制命令
+`:HelpCurwin`:
 >
 	command -bar -nargs=? -complete=help HelpCurwin execute s:HelpCurwin(<q-args>)
 	let s:did_open_help = v:false
